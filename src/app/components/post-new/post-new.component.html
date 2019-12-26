@@ -1,0 +1,55 @@
+<div class="col-md-12 mt-3">
+    <h1>{{page_title}}</h1>
+
+    <p *ngIf="status != 'success'">Añade un nuevo Post</p>
+
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        Se ha agregado el post correctamente
+    </div>
+
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        Error guardar post
+    </div>
+
+    <!--Formulario de Entradas-->
+    <form class="col-md-5 ml-0 pl-0" #postNew="ngForm" (ngSubmit)="onSubmit(postNew)">
+        <div class="form-group">
+            <label for="title">Titulo</label>
+            <input type="text" name="title" #title="ngModel" [(ngModel)]="post.title" class="form-control" required>
+            <small *ngIf="!title.valid && title.touched" class="invalid-feedback d-block">
+                Titulo no Válido.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Descripción</label>
+            <textarea [froalaEditor]="froala" name="content" #content="ngModel" [(ngModel)]="post.content" class="form-control" required></textarea>
+            <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+                Contenido no Válido.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="category_id">Categorias</label>
+            <select name="category_id" #category="ngModel" [(ngModel)]="post.category_id" class="form-control">
+                <option *ngFor="let category of categories" value="{{category.id}}">
+                    {{category.name}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image</label>
+            <angular-file-uploader
+                [config]="afuConfig"
+                [resetUpload]=resetVar
+                (ApiResponse)="imageUpload($event)">
+            </angular-file-uploader>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar" [disabled]="postNew.invalid">
+    </form>
+    
+</div>
+
+
