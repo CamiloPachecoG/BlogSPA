@@ -1,0 +1,14 @@
+<div class="col-md-12" *ngIf="!post">
+    cargando..
+</div>
+
+<div class="col-md-12 mt-3" *ngIf="post">
+    <div class="card">
+        <img src="{{ url + 'post/image/' + post.image }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p [innerHtml]="post.content" class="card-text"></p>
+          <p class="card-text"><small class="text-muted">{{post.category.name}} - {{post.user.name + ' ' + post.user.surname}}</small></p>
+        </div>
+      </div>
+</div>
