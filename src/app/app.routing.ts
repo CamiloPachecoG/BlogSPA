@@ -12,6 +12,10 @@ import { CategoryNewComponent } from './components/category-new/category-new.com
 import { PostNewComponent } from './components/post-new/post-new.component';
 import { PostDetailComponent} from './components/post-detail/post-detail.component';
 import { PostEditComponent} from './components/post-edit/post-edit.component';
+import { CategoryDetailComponent} from './components/category-detail/category-detail.component';
+import { ProfileComponent} from './components/profile/profile.component';
+
+import { IdentityGuard } from './services/identity.guard';
 
 //Definir rutas
 const appRoutes: Routes = [
@@ -20,11 +24,14 @@ const appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'logout/:sure', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'ajustes', component: UserEditComponent},
-    {path: 'crear-categoria', component: CategoryNewComponent},
-    {path: 'crear-entrada', component: PostNewComponent},
+    {path: 'ajustes', component: UserEditComponent, canActivate: [IdentityGuard]},
+    {path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
+    {path: 'crear-entrada', component: PostNewComponent, canActivate: [IdentityGuard]},
     {path: 'entrada/:id', component: PostDetailComponent},
-    {path: 'editar-entrada/:id', component: PostEditComponent},
+    {path: 'editar-entrada/:id', component: PostEditComponent, canActivate: [IdentityGuard]},
+    {path: 'categoria/:id', component: CategoryDetailComponent},
+    {path: 'perfil/:id', component: ProfileComponent},
+    {path: 'error', component: ErrorComponent},
     {path: '**', component: ErrorComponent}
 ];
 

@@ -23,10 +23,11 @@ export class PostNewComponent implements OnInit {
   public froala:
     Object = {
       charCounterCount: true,
-      toolbarButtons:   ['bold', 'italic', 'underline', 'alert'],
-      toolbarButtonsXS: ['bold', 'italic', 'underline', 'alert'],
-      toolbarButtonsSM: ['bold', 'italic', 'underline', 'alert'],
-      toolbarButtonsMD: ['bold', 'italic', 'underline', 'alert'],
+      language: 'es',
+      toolbarButtons:   ['bold', 'italic', 'underline'],
+      toolbarButtonsXS: ['bold', 'italic', 'underline'],
+      toolbarButtonsSM: ['bold', 'italic', 'underline'],
+      toolbarButtonsMD: ['bold', 'italic', 'underline'],
  };
 
   public afuConfig = {

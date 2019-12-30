@@ -1,7 +1,8 @@
 <div class="col-md-12 mt-3">
     <h1>{{page_title}}</h1>
 
-    <p *ngIf="status != 'success'">Añade un nuevo Post</p>
+    <p *ngIf="!is_edit">Añade un nuevo Post</p>
+    <p *ngIf="is_edit && post">Modifica el Post {{post.title}}</p>
 
     <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
         Se ha agregado el post correctamente
@@ -40,6 +41,9 @@
 
         <div class="form-group">
             <label for="image">Image</label>
+            <div *ngIf="is_edit && post.image">
+                <img src=" {{ url + 'post/image/' + post.image }} " class="avatar_edit">
+            </div>
             <angular-file-uploader
                 [config]="afuConfig"
                 [resetUpload]=resetVar

@@ -38,6 +38,7 @@ export class UserService {
     }
 
     update(token, user): Observable<any>{
+        user.description = global.htmlEntities(user.description);
 
         let json = JSON.stringify(user);
         let params = 'json='+json;
@@ -59,16 +60,29 @@ export class UserService {
         return this.identity;
       }
     
-      getToken(){
-          let token = localStorage.getItem('token');
+    getToken(){
+        let token = localStorage.getItem('token');
 
-          if(token && token != "udenfined"){
-            this.token = token;
-        }else{
-            this.token = null;
-        }
-
-        return this.token;
-    
-      }
+        if(token && token != "udenfined"){
+        this.token = token;
+    }else{
+        this.token = null;
     }
+
+    return this.token;
+
+    }
+
+    getPosts(id): Observable<any>{
+
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.get(this.url + 'post/user/' + id, {headers: headers});
+    }
+
+    getUser(id): Observable<any>{
+
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.get(this.url + 'user/detail/' + id, {headers: headers});
+    }
+
+}
