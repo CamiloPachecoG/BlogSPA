@@ -1,27 +1,19 @@
 # BlogAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+Proyecto Blog API realizado frontend Angular 8 backend Laravel 6
 
-## Development server
+## ScreenShots
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Inicio
 
-## Code scaffolding
+![Captura de Pantalla 2020-02-08 a la(s) 13 27 55](https://user-images.githubusercontent.com/58574070/74088595-d21e0300-4a76-11ea-8e3e-810c1cb05eb7.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Crear Post
 
-## Build
+![Captura de Pantalla 2020-02-08 a la(s) 13 29 06](https://user-images.githubusercontent.com/58574070/74088610-fc6fc080-4a76-11ea-8f42-50cc80f76c09.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Leer Post
 
-## Running unit tests
+![Captura de Pantalla 2020-02-08 a la(s) 13 32 25](https://user-images.githubusercontent.com/58574070/74088659-743deb00-4a77-11ea-890b-23c7837aa5e7.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
